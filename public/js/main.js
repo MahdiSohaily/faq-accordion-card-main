@@ -1,23 +1,25 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import { setupCounter } from './counter.js'
+let elements = document.querySelectorAll(".question");
+let elem_ques = document.querySelectorAll(".question p");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+elements.forEach((elem) =>
+  elem.addEventListener("click", () => {
+    // selecting the question of
+    let question = elem.firstElementChild;
+    let arrow = elem.querySelector("img");
 
-setupCounter(document.querySelector('#counter'))
+    // elem_ques.forEach((e) => {
+    //   e.classList.remove("open");
+    // });
+
+    if (question.classList.contains("open") === true) {
+      arrow.style.transform = "rotate(0deg)";
+      elem.nextElementSibling.style.height = "0em";
+    } else {
+      arrow.style.transform = "rotate(180deg)";
+
+      elem.nextElementSibling.style.height = "3em";
+    }
+    // adding the class open to clicked element;
+    question.classList.toggle("open");
+  })
+);

@@ -1,3 +1,244 @@
-:root{
-  
+:root {
+  --text-dark-blue: hsl(238, 29%, 16%);
+  --text-soft-red: hsl(14, 88%, 65%);
+
+  --g-soft-blue: hsl(240, 73%, 65%);
+  --g-soft-violent: hsl(273, 75%, 66%);
+
+  --d-grayish-blue: hsl(240, 5%, 91%);
+  --t-grayish-blue: hsl(237, 12%, 33%);
+  --t-dark-grayish-blue: hsl(240, 6%, 50%);
+
+  --font-family: "Kumbh Sans", sans-serif;
+  --body-font-size: 0.75em;
+  --fw-400: 400;
+  --fw-700: 700;
+
+  --size-100: 0.5em;
+  --size-200: 1em;
+  --size-300: 1.5em;
+  --size-400: 2em;
+  --size-500: 2.5em;
+  --size-600: 3em;
+  --size-700: 4em;
+  --size-800: 5em;
+  --size-900: 5em;
+  --size-xl: 7em;
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* general styling */
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Utility classes */
+.bg-gradient {
+  background-image: linear-gradient(
+    to bottom,
+    var(--g-soft-violent),
+    var(--g-soft-blue)
+  );
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.question p {
+  color: var(--text-dark-blue);
+}
+
+p,
+span {
+  font-size: var(--body-font-size);
+}
+.primary-header {
+  text-align: center;
+  font-size: 2em;
+}
+
+@media screen and (min-width: 40em) {
+  .primary-header {
+    text-align: left;
+  }
+}
+
+.open {
+  font-weight: 700;
+}
+
+/* component styles */
+
+.card {
+  background-color: white;
+  border-radius: var(--size-300);
+  min-width: min(800px, 90%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-inline: var(--size-300) ;
+}
+
+@media screen and (min-width: 40em) {
+  .card {
+    flex-direction: row;
+  }
+}
+
+.image,
+.paragraph {
+  flex: 50%;
+  position: relative;
+}
+
+.image {
+  position: relative;
+  min-height: 110px;
+  background: url("../images/bg-pattern-mobile.svg");
+  background-size: 60%;
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.women {
+  position: absolute;
+  width: 60%;
+  bottom: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.box{
+  display: none;
+}
+
+@media screen and (min-width:40em) {
+  .image {
+    background: url("../images/bg-pattern-desktop.svg");
+    background-position: 122% 70%;
+    background-repeat: no-repeat;
+    background-size: 180%;
+    overflow: hidden;
+  }
+
+ .women {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: -18%;
+    transform: translateY(-50%);
+  }
+  .box {
+    position: absolute;
+    display: block;
+    top: 40%;
+    left: -6em;
+    z-index: 2;
+  }
+}
+
+.paragraph {
+  padding-block: var(--size-100);
+  padding-inline: var(--size-300);
+  padding-bottom: var(--size-500);
+}
+.accordion {
+  padding-block: var(--size-200);
+}
+
+@media screen and (min-width: 40em) {
+  .accordion {
+    padding-right: var(--size-700);
+  }
+  .paragraph {
+    padding-block: var(--size-600);
+  }
+}
+.item {
+  border-bottom: 1px solid var(--d-grayish-blue);
+  padding-block: var(--size-200);
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.answer {
+
+  padding-top: var(--size-100);
+  /* display: none; */
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease-out;
 }
