@@ -18,10 +18,9 @@ This is a solution to the [FAQ accordion card challenge on Frontend Mentor](http
 
 Users should be able to:
 
-- View the optimal layout for the app depending on their device's screen size
+- View the optimal layout for the component depending on their device's screen size
 - See hover states for all interactive elements on the page
-- Select and submit a number rating
-- See the "Thank you" card state after submitting a rating
+- Hide/Show the answer to a question when the question is clicked
 
 ### Screenshot
 
